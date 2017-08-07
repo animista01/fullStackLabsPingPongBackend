@@ -14,12 +14,12 @@ default: &default
   encoding: utf8
   pool: 5
   username: root
-  password: toor
-  socket: /tmp/mysql.sock
-
+  password:
+    
 development:
   <<: *default
   database: fullStackLabsPingPongBackend_development
+  password: toor
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -27,6 +27,7 @@ development:
 test:
   <<: *default
   database: fullStackLabsPingPongBackend_test
+  password: toor
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -48,7 +49,10 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
-  database: fullStackLabsPingPongBackend_production
-  username: fullStackLabsPingPongBackend
-  password: <%= ENV['FULLSTACKLABSPINGPONGBACKEND_DATABASE_PASSWORD'] %>
+  adapter: postgresql
+  encoding: utf8
+  pool: 5
+  database: beGirl_production
+  username:
+  password:
+  host: localhost
